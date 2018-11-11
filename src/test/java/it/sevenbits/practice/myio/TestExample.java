@@ -9,23 +9,23 @@ public class TestExample {
     @Test
     public void testEmptyFileReader() throws MyFileReaderException {
 
-        MyFileStream myFileStream = Mockito.mock(FileReader.class);
+        MyStringReader myStringReader = Mockito.mock(FileReader.class);
 
-        Mockito.when(myFileStream.hasMoreLines()).thenReturn(true, false);
-        Mockito.when(myFileStream.readLine()).thenReturn("");
+        Mockito.when(myStringReader.hasMoreLines()).thenReturn(true, false);
+        Mockito.when(myStringReader.readLine()).thenReturn("");
 
-        Assert.assertEquals(0, Example.getLongestLineCharsCount(myFileStream));
+        Assert.assertEquals(0, Example.getLongestLineCharsCount(myStringReader));
     }
 
     @Test
     public void simpleTestWithThreeStrings() throws MyFileReaderException {
 
-        MyFileStream myFileStream = Mockito.mock(FileReader.class);
+        MyStringReader myStringReader = Mockito.mock(FileReader.class);
 
-        Mockito.when(myFileStream.readLine()).thenReturn("aaaa", "zzz", "ccccc");
-        Mockito.when(myFileStream.hasMoreLines()).thenReturn(true, true, true, false);
+        Mockito.when(myStringReader.readLine()).thenReturn("aaaa", "zzz", "ccccc");
+        Mockito.when(myStringReader.hasMoreLines()).thenReturn(true, true, true, false);
 
-        Assert.assertEquals(5, Example.getLongestLineCharsCount(myFileStream));
+        Assert.assertEquals(5, Example.getLongestLineCharsCount(myStringReader));
     }
 
 
